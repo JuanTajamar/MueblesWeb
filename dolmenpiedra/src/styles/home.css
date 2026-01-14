@@ -1,0 +1,110 @@
+/* src/home.css */
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background-color: #fff;
+    /* Ajuste para que el contenido no quede oculto bajo el navbar fixed */
+    padding-top: 90px; 
+    margin: 0;
+}
+
+/* Estilo Navbar Fixed */
+.navbar {
+    padding: 1.2rem 2rem;
+    background-color: #fff !important;
+    border-bottom: 1px solid #f0f0f0;
+    width: 100%;
+    z-index: 1050; /* Asegura que esté por encima de todo */
+}
+
+.navbar-brand {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.nav-link {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    color: #000 !important;
+    margin-right: 1.5rem;
+}
+
+/* Buscador personalizado */
+.search-container {
+    position: relative;
+    max-width: 250px;
+}
+
+.search-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    padding-right: 30px;
+    font-size: 0.9rem;
+}
+
+.search-input:focus {
+    box-shadow: none;
+    border-bottom: 1px solid #000;
+}
+
+.search-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo Grid de Productos */
+.product-card {
+    border: none;
+    margin-bottom: 3rem;
+    transition: opacity 0.3s;
+}
+
+.product-card:hover {
+    opacity: 0.8;
+}
+
+.product-img {
+    background-color: #f7f7f7;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+}
+
+.product-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+.product-category {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+}
+
+.header-section {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.header-section h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+}
+
+.product-item {
+    transition: all 0.3s ease;
+}
