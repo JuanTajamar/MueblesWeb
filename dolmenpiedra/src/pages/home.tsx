@@ -28,8 +28,6 @@ function Home() {
       <div className="hero-section">
         <h1 className="hero-title">Bienvenido a Dolmenpiedra</h1>
       </div>
-
-      {/* Sección 1: Imagen izquierda - Texto derecha */}
       <section className="content-section fade-in">
         <div className="section-layout">
           <div className="image-container left">
@@ -48,8 +46,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* Sección 2: Texto izquierda - Imagen derecha */}
       <section className="content-section fade-in">
         <div className="section-layout">
           <div className="text-container">
@@ -68,8 +64,6 @@ function Home() {
           </div>
         </div>
       </section>
-
-      {/* Sección 3: Imagen izquierda - Texto derecha */}
       <section className="content-section fade-in">
         <div className="section-layout">
           <div className="image-container left">

@@ -21,6 +21,9 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav mx-auto">
             <li className="nav-item">
+              <Link className="nav-link" to="/">Inicio</Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to="/productos">Productos</Link>
             </li>
             <li className="nav-item">
