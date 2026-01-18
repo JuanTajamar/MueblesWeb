@@ -1,13 +1,12 @@
-
+import mesaCentro from "./images/mesa_centro.jpeg";
 
 function App() {
   return (
     <div className="min-vh-100">
-      {/* Navbar con clase fixed-top */}
       <nav className="navbar navbar-expand-lg navbar-light fixed-top">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">Dolmepiedra</a>
-          
+
           <button 
             className="navbar-toggler" 
             type="button" 
@@ -33,7 +32,7 @@ function App() {
               </li>
             </ul>
 
-            <form className="search-container d-flex" id="searchForm" onSubmit={(e) => e.preventDefault()}>
+            <form className="search-container d-flex" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="text" 
                 className="form-control search-input" 
@@ -47,15 +46,16 @@ function App() {
         </div>
       </nav>
 
-      {/* Main Content */}
       <main className="container mt-4">
-        {/* Aquí es donde se renderizarán tus productos */}
         <div className="row" id="productGrid">
-          {/* Ejemplo de cómo se vería un producto maquetado */}
           <div className="col-md-4 product-item">
             <div className="product-card">
               <div className="product-img">
-                <img src="./images/mesa_centro.jpeg" alt="producto" className="product-img" />
+                <img 
+                  src={mesaCentro} 
+                  alt="producto" 
+                  className="product-img" 
+                />
               </div>
               <p className="product-category">Furniture</p>
               <h3 className="product-title">Minimalist Chair</h3>
