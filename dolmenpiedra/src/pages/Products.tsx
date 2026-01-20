@@ -1,48 +1,20 @@
+import { useEffect, useState } from 'react';
 import '../styles/products.css';
-import mesaCentro from '../images/mesa_centro.jpeg';
-import mesaSalon from '../images/mesa_salon_travertino.jpeg';
-import mesaVelador from '../images/mesa_velador.jpeg';
-import tapasMesas from '../images/tapas_mesas_travertino.jpeg';
+import { getProducts } from '../services/service';
+import type { Mesa } from '../models/Mesa';
 
 function Products() {
-  const products = [
-    {
-      id: 1,
-      image: mesaCentro,
-      title: 'Mesa de Centro',
-      description: 'Elegante mesa de centro en piedra natural, perfecta para dar un toque moderno a tu salón.',
-    },
-    {
-      id: 2,
-      image: mesaSalon,
-      title: 'Mesa Salón Travertino',
-      description: 'Mesa de salón en travertino natural con acabado pulido y diseño contemporáneo.',
-    },
-    {
-      id: 3,
-      image: mesaVelador,
-      title: 'Mesa Velador',
-      description: 'Mesa velador de piedra natural, ideal como mesita auxiliar o de noche.',
-    },
-    {
-      id: 4,
-      image: tapasMesas,
-      title: 'Tapas Mesas Travertino',
-      description: 'Tapas de mesa en travertino premium, disponibles en diferentes tamaños y acabados.',
-    },
-    {
-      id: 5,
-      image: mesaCentro,
-      title: 'Mesa de Centro Elegante',
-      description: 'Diseño minimalista en piedra natural, perfecta para espacios modernos.',
-    },
-    {
-      id: 6,
-      image: mesaSalon,
-      title: 'Mesa Salón Premium',
-      description: 'Mesa de salón premium en travertino con detalles únicos y acabado de lujo.',
-    },
-  ];
+  const [products, setProducts] = useState<Mesa[]>([]);
+
+  useEffect(() => {
+    const fetchData = () => {
+      // Como getProducts devuelve un array directamente, lo asignamos.
+      // Si en el futuro es una llamada a API real, el await que pusiste será útil.
+      const data = getProducts();
+      setProducts(data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <div className="min-vh-100">
@@ -53,16 +25,30 @@ function Products() {
         </div>
         
         <div className="row" id="productGrid">
-          {products.map((product) => (
-            <div key={product.id} className="col-md-4 product-item">
+          {products.map((product, index) => (
+            <div key={index} className="product-item">
               <div className="product-card">
-                <div className="product-img">
-                  <img src={product.image} alt={product.title} className="product-img" />
+                {/* Contenedor de imagen para respetar tu CSS object-fit */}
+                <div className="product-img-wrapper" style={{ overflow: 'hidden', height: '300px' }}>
+                  <img 
+                    src={product.imagen} 
+                    alt={product.nombre} 
+                    className="product-img" 
+                  />
                 </div>
+                
                 <div className="product-content">
-                  <h3 className="product-title">{product.title}</h3>
-                  <p className="product-description">{product.description}</p>
-                  <button className="product-btn">Ver Producto</button>
+                  <h3 className="product-title">{product.nombre}</h3>
+                  <p className="product-description">{product.descripcion}</p>
+                  
+                  <div className="d-flex justify-content-between align-items-center mt-auto">
+                    <span className="product-price fw-bold" style={{ fontSize: '1.25rem' }}>
+                      {product.precio}
+                    </span> 
+                    <button className="product-btn" style={{ width: 'auto' }}>
+                      Ver Producto
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

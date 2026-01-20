@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import '../styles/home.css';
-import mesaSalon from '../images/mesa_salon_travertino.jpeg';
-import tapasMesas from '../images/tapas_mesas_travertino.jpeg';
-import mesaVelador from '../images/mesa_velador.jpeg';
+import mesaSalon from '../../public/images/mesa_salon_travertino.jpeg';
+import tapasMesas from '../../public/images/tapas_mesas_travertino.jpeg';
+import mesaVelador from '../../public/images/mesa_velador.jpeg';
 
 function Home() {
   useEffect(() => {
@@ -28,56 +28,58 @@ function Home() {
       <div className="hero-section">
         <h1 className="hero-title">Bienvenido a Dolmenpiedra</h1>
       </div>
+
       <section className="content-section fade-in">
         <div className="section-layout">
           <div className="image-container left">
-            <img src={mesaSalon} alt="Quiénes somos" />
+            <img src={mesaSalon} alt="Artesanía familiar Dolmenpiedra" />
           </div>
           <div className="text-container">
             <h2>¿Quiénes Somos?</h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-              irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla 
-              pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia 
-              deserunt mollit anim id est laborum.
+              Dolmenpiedra es una empresa familiar con una profunda pasión por la piedra. 
+              Nuestro proyecto nace del amor por los materiales nobles y el deseo de crear 
+              objetos que perduren en el tiempo. Nos dedicamos a la creación artesanal de 
+              mobiliario de lujo, transformando bloques de mármol, travertino y caliza en 
+              piezas que son verdaderas obras de arte para el hogar.
             </p>
           </div>
         </div>
       </section>
+
       <section className="content-section fade-in">
         <div className="section-layout">
           <div className="text-container">
             <h2>¿Dónde Trabajamos?</h2>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque 
-              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi 
-              architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas 
-              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
-              voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit 
-              amet, consectetur, adipisci velit.
+              Nuestro corazón y taller se encuentran en Esquivias, Toledo, un lugar con 
+              historia donde mantenemos viva la tradición del trabajo en piedra. Aunque nuestras 
+              raíces son toledanas, en Dolmenpiedra no tenemos fronteras: trabajamos por encargo 
+              en toda España, llevando la elegancia de nuestras mesas y piezas auxiliares a 
+              cualquier rincón de la península. Cada pedido es gestionado de forma personalizada 
+              para garantizar que la piedra llegue perfecta a su nuevo destino.
             </p>
           </div>
           <div className="image-container right">
-            <img src={tapasMesas} alt="Dónde trabajamos" />
+            <img src={tapasMesas} alt="Taller en Esquivias, Toledo" />
           </div>
         </div>
       </section>
+
       <section className="content-section fade-in">
         <div className="section-layout">
           <div className="image-container left">
-            <img src={mesaVelador} alt="Nuestros productos" />
+            <img src={mesaVelador} alt="Muebles de mármol por encargo" />
           </div>
           <div className="text-container">
             <h2>Nuestros Productos</h2>
             <p>
-              At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
-              voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati 
-              cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, 
-              id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. 
-              Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus 
-              id quod maxime placeat facere possimus.
+              Especialistas en mármol y piedras naturales, ofrecemos una colección que destaca 
+              por su exclusividad. Desde mesas de salón en travertino hasta piezas en caliza 
+              Sierra Elvira o Blanca Paloma. Al ser un proceso artesanal, nos adaptamos a las 
+              necesidades de nuestros clientes, ofreciendo acabados apomazados o envejecidos 
+              que resaltan la belleza natural del material. En Dolmenpiedra, no solo fabricamos 
+              muebles, creamos el alma de tu salón.
             </p>
           </div>
         </div>
