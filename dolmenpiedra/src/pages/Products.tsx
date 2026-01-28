@@ -1,17 +1,28 @@
 import { useEffect, useState } from 'react';
 import '../styles/products.css';
-import { getProducts } from '../services/service';
-import type { Mesa } from '../models/Mesa';
+import { productsApi, type Mesa } from '../services/api';
 
 function Products() {
   const [products, setProducts] = useState<Mesa[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchData = () => {
-      // Como getProducts devuelve un array directamente, lo asignamos.
-      // Si en el futuro es una llamada a API real, el await que pusiste será útil.
-      const data = getProducts();
-      setProducts(data);
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const response = await productsApi.getAll();
+        if (response.success && response.data) {
+          setProducts(response.data);
+        } else {
+          setError(response.error || 'Error al cargar productos');
+        }
+      } catch (err) {
+        setError('Error de conexión con el servidor');
+        console.error('Error fetching products:', err);
+      } finally {
+        setLoading(false);
+      }
     };
     fetchData();
   }, []);
@@ -24,9 +35,27 @@ function Products() {
           <p>Descubre nuestra colección exclusiva de muebles de piedra natural</p>
         </div>
         
+        {loading && (
+          <div className="text-center py-5">
+            <p>Cargando productos...</p>
+          </div>
+        )}
+
+        {error && (
+          <div className="alert alert-danger" role="alert">
+            {error}
+          </div>
+        )}
+
+        {!loading && !error && products.length === 0 && (
+          <div className="text-center py-5">
+            <p>No hay productos disponibles</p>
+          </div>
+        )}
+        
         <div className="row" id="productGrid">
-          {products.map((product, index) => (
-            <div key={index} className="product-item">
+          {products.map((product) => (
+            <div key={product.id} className="product-item">
               <div className="product-card">
                 {/* Contenedor de imagen para respetar tu CSS object-fit */}
                 <div className="product-img-wrapper" style={{ overflow: 'hidden', height: '300px' }}>

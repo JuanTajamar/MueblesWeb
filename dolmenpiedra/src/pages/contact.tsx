@@ -1,8 +1,9 @@
 import '../styles/contact.css';
 import { useState } from 'react';
+import { contactApi, type ContactFormData } from '../services/api';
 
 function Contact() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     email: '',
     phone: '',
@@ -11,6 +12,8 @@ function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -20,15 +23,30 @@ function Contact() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aquí iría la lógica para enviar el formulario
-    console.log('Formulario enviado:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-      setSubmitted(false);
-    }, 3000);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await contactApi.send(formData);
+      
+      if (response.success) {
+        console.log('Mensaje enviado:', response.data);
+        setSubmitted(true);
+        setTimeout(() => {
+          setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+          setSubmitted(false);
+        }, 5000);
+      } else {
+        setError(response.error || 'Error al enviar el mensaje');
+      }
+    } catch (err) {
+      setError('Error de conexión. Por favor, intenta de nuevo.');
+      console.error('Error enviando mensaje:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -77,6 +95,11 @@ function Contact() {
                 ¡Gracias! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto pronto.
               </div>
             )}
+            {error && (
+              <div className="alert alert-danger mb-3" role="alert">
+                {error}
+              </div>
+            )}
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-row">
                 <div className="form-group">
@@ -89,6 +112,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Tu nombre completo"
                     required
+                    disabled={loading}
                   />
                 </div>
                 <div className="form-group">
@@ -101,6 +125,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="tu@email.com"
                     required
+                    disabled={loading}
                   />
                 </div>
               </div>
@@ -115,6 +140,7 @@ function Contact() {
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder="+34 123 456 789"
+                    disabled={loading}
                   />
                 </div>
                 <div className="form-group">
@@ -127,6 +153,7 @@ function Contact() {
                     onChange={handleChange}
                     placeholder="Asunto de tu consulta"
                     required
+                    disabled={loading}
                   />
                 </div>
               </div>
@@ -141,10 +168,13 @@ function Contact() {
                   placeholder="Cuéntanos tu consulta en detalle..."
                   rows={6}
                   required
+                  disabled={loading}
                 />
               </div>
 
-              <button type="submit" className="submit-btn">Enviar Mensaje</button>
+              <button type="submit" className="submit-btn" disabled={loading}>
+                {loading ? 'Enviando...' : 'Enviar Mensaje'}
+              </button>
             </form>
           </div>
         </div>
