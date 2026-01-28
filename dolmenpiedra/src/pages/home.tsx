@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className="home-container">
       <div className="hero-section">
-        <h1 className="hero-title">Bienvenido a Dolmenpiedra</h1>
+        <h1 className="hero-title">Bienvenido a Dolmen Piedra</h1>
       </div>
 
       <section className="content-section fade-in">
@@ -37,7 +37,7 @@ function Home() {
           <div className="text-container">
             <h2>¿Quiénes Somos?</h2>
             <p>
-              Dolmenpiedra es una empresa familiar con una profunda pasión por la piedra. 
+              Dolmen Piedra es una empresa familiar con una profunda pasión por la piedra. 
               Nuestro proyecto nace del amor por los materiales nobles y el deseo de crear 
               objetos que perduren en el tiempo. Nos dedicamos a la creación artesanal de 
               mobiliario de lujo, transformando bloques de mármol, travertino y caliza en 
@@ -54,7 +54,7 @@ function Home() {
             <p>
               Nuestro corazón y taller se encuentran en Esquivias, Toledo, un lugar con 
               historia donde mantenemos viva la tradición del trabajo en piedra. Aunque nuestras 
-              raíces son toledanas, en Dolmenpiedra no tenemos fronteras: trabajamos por encargo 
+              raíces son toledanas, en Dolmen Piedra no tenemos fronteras: trabajamos por encargo 
               en toda España, llevando la elegancia de nuestras mesas y piezas auxiliares a 
               cualquier rincón de la península. Cada pedido es gestionado de forma personalizada 
               para garantizar que la piedra llegue perfecta a su nuevo destino.
@@ -78,7 +78,7 @@ function Home() {
               por su exclusividad. Desde mesas de salón en travertino hasta piezas en caliza 
               Sierra Elvira o Blanca Paloma. Al ser un proceso artesanal, nos adaptamos a las 
               necesidades de nuestros clientes, ofreciendo acabados apomazados o envejecidos 
-              que resaltan la belleza natural del material. En Dolmenpiedra, no solo fabricamos 
+              que resaltan la belleza natural del material. En Dolmen Piedra, no solo fabricamos 
               muebles, creamos el alma de tu salón.
             </p>
           </div>

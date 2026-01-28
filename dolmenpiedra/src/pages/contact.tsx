@@ -67,14 +67,14 @@ function Contact() {
               <div className="info-icon">📍</div>
               <div className="info-text">
                 <h3>Ubicación</h3>
-                <p>Calle Principal 123<br />Madrid, España</p>
+                <p>Pol Ind Barrio De La Estación, C. Galicia, 16, 45220 <br />Yeles, Toledo</p>
               </div>
             </div>
             <div className="info-item">
               <div className="info-icon">📞</div>
               <div className="info-text">
                 <h3>Teléfono</h3>
-                <p>+34 123 456 789</p>
+                <p>+34 925 54 79 49</p>
               </div>
             </div>
             <div className="info-item">
